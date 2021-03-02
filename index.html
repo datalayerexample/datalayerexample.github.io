@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Layer Example</title>
+  <script>
+  dataLayer = window.dataLayer || [];
+  </script>
+
+
+</head>
+<body>
+  <button id="test1" onclick="dataLayer.push({
+    'event': 'dl.test',
+    'category': 'Click',
+    'action': 'button',
+    'label': 'test1'
+  })">
+    Test
+  </button>
+  <button id="test2">Test2</button>
+</body>
+<script>
+  document.getElementById("test2").addEventListener("click", pushToDataLayer);
+  
+  function pushToDataLayer(event) {
+    dataLayer.push({
+      'event': 'dl.test',
+    'category': 'Click',
+    'action': 'button',
+   'label': 'test2'
+    })
+
+  }
+</script>
+</html>
